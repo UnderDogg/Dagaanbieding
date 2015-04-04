@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="Dagaanbieding">
+	<head>
+		<base href="/">
+		<title>DAGAANBIEDING!!!</title>
+
+		<!-- Font Awesome -->
+		<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+
+		<!-- Bootstrap -->
+		<link href="./css/bootstrap.css" rel="stylesheet" media="screen">
+
+		<!-- Style.css -->
+		<link href="./css/styles.css" rel="stylesheet" media="screen">
+	</head>
+
+	<body ng-controller="globalController">
+		<div id="wrap">
+			<!-- Static navbar -->
+			<nav class="navbar navbar-default navbar-static-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="/">Dagaanbieding</a>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li ng-class="{ active: isActive('/') }">
+								<a href="/"><i class="fa fa-home fa-fw"></i> Home</a>
+							</li>
+							<li ng-class="{ active: isActive('/history') }">
+								<a href="/history"><i class="fa fa-exclamation fa-fw"></i> Geschiedenis</a>
+							</li>
+							<li ng-class="{ active: isActive('/about') }">
+								<a href="/about"><i class="fa fa-users fa-fw"></i> Over Ons</a>
+							</li>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</nav>
+
+			<div ng-view></div>
+
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <ul class="list-inline">
+                                <li class="copyright text-muted small">Copyright &copy;</li>
+                                <li class="copyright text-muted small"><a target="_blank" href="http://elsdenengelse.elshaakt.nl">Els den Engelse</a></li>
+                                <li class="footer-menu-divider">&sdot;</li>
+                                <li class="copyright text-muted small"><a target="_blank" href="http://sanderkoenders.nl">Sander Koenders</a></li>
+                                <li class="footer-menu-divider">&sdot;</li>
+                                <li class="copyright text-muted small">2015. All Rights Reserved</li>
+                                <li class="muted credit pull-right"><a target="_blank" href="http://elshaakt.nl">Admin Panel</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+		</div>
+	</body>
+
+	<!-- JQuery -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+	<!-- Angular -->
+    <script src="http://code.angularjs.org/1.2.14/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-route.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-animate.js"></script>
+
+	<!-- Angular Config, Controllers and Services -->
+	<script src="./js/main.js"></script>
+	<script src="./js/controllers/Homecontroller.js"></script>
+	<script src="./js/controllers/GlobalController.js"></script>
+	<script src="./js/controllers/HistoryController.js"></script>
+	<script src="./js/services/AjaxService.js"></script>
+
+	<!-- Bootstrap -->
+	<script src="./js/bootstrap.js"></script>
+	
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		ga('create', 'UA-60869913-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+</html>
