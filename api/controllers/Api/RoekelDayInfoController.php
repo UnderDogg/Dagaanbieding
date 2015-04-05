@@ -2,23 +2,29 @@
 
 namespace Api;
 
-use \RoekelDayInfo;
-use \RoekelProducts;
+use RoekelDayInfo;
+use RoekelProducts;
 
 class RoekelDayInfoController extends \Helpers\ApiBaseController {
 	public function GetAllAction() {
-		// Get Data
-		$dailyDeals = RoekelDayInfo::find(array(
-			'order'	=> 'date DESC'
-		));
-
-		foreach($dailyDeals as $dailyDeal) {
-			$data[] = array(
-				'name' 		=> $dailyDeal->RoekelProducts->name,
-				'date'		=> $dailyDeal->date,
-				'price'		=> $dailyDeal->RoekelProducts->price,
-				'picture'	=> $dailyDeal->RoekelProducts->picture,
-			);
+		$data = $this->cache->get('dailyDeals_all');
+		
+		if(is_null($data)) {
+			// Get Data
+			$dailyDeals = RoekelDayInfo::find(array(
+				'order'	=> 'date DESC'
+			));
+	
+			foreach($dailyDeals as $dailyDeal) {
+				$data[] = array(
+					'name' 		=> $dailyDeal->RoekelProducts->name,
+					'date'		=> $dailyDeal->date,
+					'price'		=> $dailyDeal->RoekelProducts->price,
+					'picture'	=> $dailyDeal->RoekelProducts->picture,
+				);
+			}
+			
+			$this->cache->save('dailyDeals_all', $data);
 		}
 
 		// Initialize response
@@ -31,27 +37,31 @@ class RoekelDayInfoController extends \Helpers\ApiBaseController {
 	}
 	
 	public function GetLatestAction() {
-		$today = date('Y-m-d', time());
-		//$today = '2015-03-09';
+		$data = $this->cache->get('dailyDeals_today', 30);
 		
-		// Get information
-		$dailyInfo = RoekelDayInfo::findFirst(array(
-			'conditions'	=> 'date = ?1',
-			'bind'			=> array(1 => $today)
-		));
-
-		if(!empty($data)) {
-			$data = array(
-				'name' 		=> $dailyInfo->RoekelProducts->name,
-				'date'		=> $dailyInfo->date,
-				'price'		=> $dailyInfo->RoekelProducts->price,
-				'picture'	=> $dailyInfo->RoekelProducts->picture,
-			);
+		if(is_null($data)) {
+			$today = date('Y-m-d', time());
+			
+			// Get information
+			$dailyInfo = RoekelDayInfo::findFirst(array(
+				'conditions'	=> 'date = ?1',
+				'bind'			=> array(1 => $today)
+			));
+	
+			if(!empty($data)) {
+				$data = array(
+					'name' 		=> $dailyInfo->RoekelProducts->name,
+					'date'		=> $dailyInfo->date,
+					'price'		=> $dailyInfo->RoekelProducts->price,
+					'picture'	=> $dailyInfo->RoekelProducts->picture,
+				);
+			}
+			else {
+				$data = array('error' => 'noContent');
+			}
+			
+			$this->cache->save('dailyDeals_today', $data);
 		}
-		else {
-			$data = array('error' => 'noContent');
-		}
-
 
 		// Initialize Response
 		$this->setStatusCode(200);

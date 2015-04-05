@@ -4,12 +4,12 @@ namespace Helpers;
 
 use \Phalcon\Http\Response as PhResponse;
 
-class ApiBaseController extends \Phalcon\Mvc\Controller 
+class ApiBaseController extends \BaseController
 {
-    protected $statusCode = 200;
-    protected $headers    = array();
-    protected $payload    = '';
-    protected $format     = '';
+    private $statusCode = 200;
+   	private $headers    = array();
+    private $payload    = '';
+    private $format     = '';
 
     /**
      * Setters

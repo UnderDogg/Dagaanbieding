@@ -8,7 +8,7 @@ $router->mount(new ApiRoutes());
 
 //Set 404 paths
 $router->notFound(array(
-	'controller'	=> 'base',
+	'controller'	=> 'Global',
 	'action'		=> 'notFound'
 ));
 
