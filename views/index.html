@@ -2,15 +2,17 @@
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
             <div class="panel panel-default">
+                <div class="panel-header text-center">
+                    <h3>Dagaanbieding van vandaag</h3>
+                    <small>{{ content.date }}</small>
+                </div>
+                <hr>
                 <div class="panel-body">
-                    <div class="content-header">
-                        <h3 class="text-center">Dagaanbieding van vandaag  <small>{{ content.date }} </small></h3>
-                    </div>
-                    <h2 class="text-center">
-                        {{ content.name }}
-                        <img ng-src="{{ content.picture }}" class="img-responsive daily-img">
-                        <p ng-if="content.price">&euro; {{ content.price | number:2 }}</p>
-                    </h2>
+                    <h2 class="text-center title">{{ content.name }}</h2>
+                    <img ng-src="{{ content.picture }}" class="img-responsive daily-img">
+                </div>
+                <div class="panel-footer" ng-if="content.price">
+                    <h3 class="text-center">&euro; {{ content.price | number:2 }}</h3>
                 </div>
             </div>
         </div>
