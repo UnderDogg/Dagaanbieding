@@ -48,3 +48,7 @@ Temporary Items
 
 # Cache
 cache
+
+# Git
+gitPull.sh
+git.log
