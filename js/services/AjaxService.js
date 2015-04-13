@@ -1,4 +1,3 @@
-/*jslint node: true, nomen: true*/
 angular.module('Dagaanbieding')
 
 .factory('ajaxService', ['$http', function($http) {
@@ -27,6 +26,30 @@ angular.module('Dagaanbieding')
             callback(data, status);
         })
         // On Error
+        .error(function(data, status, error) {
+            console.log("OH NOEZZ SOMETHING WENT TERRIBLY WRONG: ", data, status, error);
+        });
+    };
+
+    factory.put = function(url, data, callback) {
+        $http.put(url, data)
+        // On success
+        .success(function(data, status) {
+            callback(data, status);
+        })
+        // On Error
+        .error(function(data, status, error) {
+            console.log("OH NOEZZ SOMETHING WENT TERRIBLY WRONG: ", data, status, error);
+        });
+    };
+
+    factory.delete = function(url, callback) {
+        $http.delete(url)
+        // On success
+        .success(function(data) {
+            callback(data);
+        })
+        // On error
         .error(function(data, status, error) {
             console.log("OH NOEZZ SOMETHING WENT TERRIBLY WRONG: ", data, status, error);
         });
