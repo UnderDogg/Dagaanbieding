@@ -48,7 +48,7 @@ class RoekelDayInfoController extends \Helpers\ApiBaseController {
 				'bind'			=> array(1 => $today)
 			));
 	
-			if(!empty($data)) {
+			if(!empty($dailyInfo)) {
 				$data = array(
 					'name' 		=> $dailyInfo->RoekelProducts->name,
 					'date'		=> $dailyInfo->date,
@@ -57,7 +57,9 @@ class RoekelDayInfoController extends \Helpers\ApiBaseController {
 				);
 			}
 			else {
-				$data = array('error' => 'noContent');
+				$data = array(
+                    'error' => 'noContent'
+                );
 			}
 			
 			$this->cache->save('dailyDeals_today', $data);
