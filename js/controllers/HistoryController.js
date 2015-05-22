@@ -6,6 +6,7 @@ historyApp.controller("historyController", ['$scope', '$location', 'ajaxService'
     $scope.content = [];
     $scope.selectedMonth = "999";
     $scope.selectedYear = "999";
+    $scope.noResults = false;
 
     $scope.filterData = function () {
         var month = parseInt($scope.selectedMonth);
@@ -19,6 +20,8 @@ historyApp.controller("historyController", ['$scope', '$location', 'ajaxService'
                     $scope.content.push(item);
                 }
             });
+
+            $scope.noResults = $scope.content.length === 0;
         }
     };
 
