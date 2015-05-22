@@ -13,6 +13,9 @@ historyApp.controller("historyController", ['$scope', '$location', 'ajaxService'
         var month = $scope.selectedMonth;
         var year = $scope.selectedYear;
 
+        console.log(month);
+        console.log(year);
+
         if (month !== "" && year != "") {
             $scope.allData.forEach(function (item) {
                 if (year === item.date.getFullYear() && month === item.date.getMonth()) {
@@ -31,8 +34,6 @@ historyApp.controller("historyController", ['$scope', '$location', 'ajaxService'
                 $scope.content.push(item);
             }
         });
-
-        console.log($scope.content);
 
         $scope.allData = data;
     });
