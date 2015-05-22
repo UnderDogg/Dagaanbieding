@@ -8,6 +8,9 @@ historyApp.controller("historyController", ['$scope', '$location', 'ajaxService'
     $scope.selectedYear = "999";
 
     $scope.filterData = function () {
+        var month = parseInt($scope.selectedMonth);
+        var year = parseInt($scope.selectedYear);
+
         if (month !== 999 && year !== 999) {
             $scope.content = [];
 
