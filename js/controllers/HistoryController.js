@@ -12,7 +12,7 @@ historyApp.controller("historyController", ['$scope', '$location', 'ajaxService'
         var month = parseInt($scope.selectedMonth);
         var year = parseInt($scope.selectedYear);
 
-        if (month !== "" && year !== "") {
+        if (month !== 999 && year !== 999) {
             console.log("Passed the IF statement...");
             $scope.content = [];
 

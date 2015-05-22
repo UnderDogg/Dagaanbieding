@@ -3,14 +3,14 @@
     <p class="center-align">Selecteer een jaar en maand voor de bijbehorende aanbiedingen. De standaard maand is de huidige maand.</p>
     <div class="input-field col s4 offset-s2">
         <select id="selectYear" ng-model="selectedYear" ng-change="filterData()">
-            <option value="" disabled selected>Jaar</option>
+            <option value="999" disabled selected>Jaar</option>
             <option value="2015">2015</option>
         </select>
         <label for="selectYear">Selecteer een jaar</label>
     </div>
     <div class="input-field col s4">
         <select id="selectMonth" ng-model="selectedMonth" ng-change="filterData()">
-            <option value="" disabled selected>Maand</option>
+            <option value="999" disabled selected>Maand</option>
             <option value="0">Januari</option>
             <option value="1">Februari</option>
             <option value="2">Maart</option>
