@@ -4,8 +4,8 @@ historyApp.controller("historyController", ['$scope', '$location', 'ajaxService'
     'use strict';
     $scope.allData = [];
     $scope.content = [];
-    $scope.selectedMonth = "";
-    $scope.selectedYear = "";
+    $scope.selectedMonth = "999";
+    $scope.selectedYear = "999";
 
     $scope.filterData = function () {
         console.log($scope.selectedMonth, $scope.selectedYear, parseInt($scope.selectedMonth), parseInt($scope.selectedYear));
