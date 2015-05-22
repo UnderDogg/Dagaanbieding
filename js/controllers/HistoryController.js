@@ -13,11 +13,13 @@ historyApp.controller("historyController", ['$scope', '$location', 'ajaxService'
         var month = $scope.selectedMonth;
         var year = $scope.selectedYear;
 
-        console.log(month);
-        console.log(year);
+        console.log("month", month);
+        console.log("year", year);
 
-        if (month !== "" && year != "") {
+        if (month !== "" && year !== "") {
             $scope.allData.forEach(function (item) {
+                console.log(item.date.getFullYear(), year, item.date.getFullYear() && year);
+                console.log(item.date.getMonth(), month, item.date.getMonth() && month);
                 if (year === item.date.getFullYear() && month === item.date.getMonth()) {
                     $scope.content.push(item);
                     console.log("Match!");
