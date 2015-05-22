@@ -8,10 +8,10 @@
                         <img ng-src="{{ item.picture }}">
                     </div>
                     <div class="card-content">
-                        <h4 class="margin-0px">{{ item.name }} - <span class="green-text lighten-2">{{ item.date | date:fullDate }}</span></h4>
+                        <h5 class="margin-0px">{{ item.name }} - <span class="green-text lighten-2">{{ item.date | date:fullDate }}</span></h5>
                     </div>
                     <div class="card-action" ng-if="item.price">
-                        <h4 class="margin-0px">&euro; {{ item.price | number:2 }}</h4>
+                        <h5 class="margin-0px">&euro; {{ item.price | number:2 }}</h5>
                     </div>
                 </div>
             </div>
