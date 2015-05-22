@@ -20,6 +20,7 @@ historyApp.controller("historyController", ['$scope', '$location', 'ajaxService'
             $scope.allData.forEach(function (item) {
                 if (year === item.date.getFullYear() && month === item.date.getMonth()) {
                     $scope.content.push(item);
+                    console.log("Match!");
                 }
             });
         }
