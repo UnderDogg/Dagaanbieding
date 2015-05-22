@@ -10,7 +10,7 @@ historyApp.controller("historyController", ['$scope', '$location', 'ajaxService'
         var year = $scope.selectedYear;
 
         if (month !== "" && year != "") {
-
+        
         }
     };
 
@@ -19,14 +19,12 @@ historyApp.controller("historyController", ['$scope', '$location', 'ajaxService'
 
         data.forEach(function (item) {
             item.date = new Date(item.date);
-            console.log(currentDate.getFullYear());
-            console.log(item.date.getFullYear());
-            console.log(currentDate.getMonth());
-            console.log(item.date.getMonth());
             if (currentDate.getFullYear() === item.date.getFullYear() && currentDate.getMonth() === item.date.getMonth()) {
                 $scope.content.push(item);
             }
         });
+
+        console.log($scope.content);
 
         $scope.allData = data;
     });
