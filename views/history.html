@@ -1,53 +1,55 @@
 <div class="row">
-    <h3 class="center-align">Geschiedenis</h3>
-    <p class="center-align">Selecteer een jaar en maand voor de bijbehorende aanbiedingen. De standaard maand is de huidige maand.</p>
-    <div class="input-field col s4 offset-s2">
-        <select id="selectYear" ng-model="selectedYear" ng-change="filterData()">
-            <option value="999" disabled selected>Jaar</option>
-            <option value="2015">2015</option>
-        </select>
-        <label for="selectYear">Selecteer een jaar</label>
-    </div>
-    <div class="input-field col s4">
-        <select id="selectMonth" ng-model="selectedMonth" ng-change="filterData()">
-            <option value="999" disabled selected>Maand</option>
-            <option value="0">Januari</option>
-            <option value="1">Februari</option>
-            <option value="2">Maart</option>
-            <option value="3">April</option>
-            <option value="4">Mei</option>
-            <option value="5">Juni</option>
-            <option value="6">Juli</option>
-            <option value="7">Augustus</option>
-            <option value="8">September</option>
-            <option value="9">Oktober</option>
-            <option value="10">November</option>
-            <option value="11">December</option>
-        </select>
-        <label for="selectMonth">Selecteer een maand</label>
-    </div>
-    <script>
-        // Initialises the MaterializeCSS select fields.
-        $(document).ready(function() {
-            $('select').material_select();
-        });
-    </script>
-    <div class="col m6" ng-repeat="item in content">
-        <div class="row">
-            <div class="col s8 m8 offset-s2 offset-m2">
-                <div class="card medium">
-                    <div class="card-image">
-                        <img ng-src="{{ item.picture }}">
-                    </div>
-                    <div class="card-content">
-                        <h5 class="margin-0px">{{ item.name }} - <span class="green-text lighten-2">{{ item.date | date:fullDate }}</span></h5>
-                    </div>
-                    <div class="card-action" ng-if="item.price">
-                        <h5 class="margin-0px">&euro; {{ item.price | number:2 }}</h5>
+    <div class="col s12">
+        <h3 class="center-align">Geschiedenis</h3>
+        <p class="center-align">Selecteer een jaar en maand voor de bijbehorende aanbiedingen. De standaard maand is de huidige maand.</p>
+        <div class="input-field col s4 offset-s2">
+            <select id="selectYear" ng-model="selectedYear" ng-change="filterData()">
+                <option value="999" disabled selected>Jaar</option>
+                <option value="2015">2015</option>
+            </select>
+            <label for="selectYear">Selecteer een jaar</label>
+        </div>
+        <div class="input-field col s4">
+            <select id="selectMonth" ng-model="selectedMonth" ng-change="filterData()">
+                <option value="999" disabled selected>Maand</option>
+                <option value="0">Januari</option>
+                <option value="1">Februari</option>
+                <option value="2">Maart</option>
+                <option value="3">April</option>
+                <option value="4">Mei</option>
+                <option value="5">Juni</option>
+                <option value="6">Juli</option>
+                <option value="7">Augustus</option>
+                <option value="8">September</option>
+                <option value="9">Oktober</option>
+                <option value="10">November</option>
+                <option value="11">December</option>
+            </select>
+            <label for="selectMonth">Selecteer een maand</label>
+        </div>
+        <script>
+            // Initialises the MaterializeCSS select fields.
+            $(document).ready(function() {
+                $('select').material_select();
+            });
+        </script>
+        <div ng-hide="noResults" class="col m6" ng-repeat="item in content">
+            <div class="row">
+                <div class="col s8 m8 offset-s2 offset-m2">
+                    <div class="card medium">
+                        <div class="card-image">
+                            <img ng-src="{{ item.picture }}">
+                        </div>
+                        <div class="card-content">
+                            <h5 class="margin-0px">{{ item.name }} - <span class="green-text lighten-2">{{ item.date | date:fullDate }}</span></h5>
+                        </div>
+                        <div class="card-action" ng-if="item.price">
+                            <h5 class="margin-0px">&euro; {{ item.price | number:2 }}</h5>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <p ng-show="noResults" class="center-align col s12">Geen resultaten gevonden...</p>
     </div>
-    <p ng-show="noResults" class="center-align">Geen resultaten gevonden...</p>
 </div>
