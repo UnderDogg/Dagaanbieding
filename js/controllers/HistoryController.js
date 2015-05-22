@@ -8,22 +8,18 @@ historyApp.controller("historyController", ['$scope', '$location', 'ajaxService'
     $scope.selectedYear = "";
 
     $scope.filterData = function () {
-        var month = parseInt($scope.selectedMonth);
-        var year = parseInt($scope.selectedYear);
-
-        console.log("month", month);
-        console.log("year", year);
+        var month = $scope.selectedMonth;
+        var year = $scope.selectedYear;
 
         if (month !== "" && year !== "") {
+            month = parseInt(month);
+            month = parseInt(year);
+            
             $scope.content = [];
+
             $scope.allData.forEach(function (item) {
-                console.log(item.date.getFullYear(), year, item.date.getFullYear() === year);
-                console.log(item.date.getMonth(), month, item.date.getMonth() === month);
                 if (year === item.date.getFullYear() && month === item.date.getMonth()) {
                     $scope.content.push(item);
-                    console.log("Match!");
-                } else {
-                    console.log("No Match!")
                 }
             });
         }
