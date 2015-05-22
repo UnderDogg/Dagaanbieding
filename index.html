@@ -19,29 +19,33 @@
 
 	<body ng-controller="globalController">
         <!-- Navbar -->
-        <nav>
-            <div class="nav-wrapper">
-                <div class="container">
-                    <a href="#" class="brand-logo">Dagaanbieding</a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li ng-class="{ active: isActive('/') }">
-                            <a href="/"><span class="fa fa-home fa-fw"></span> Home</a>
-                        </li>
-                        <li ng-class="{ active: isActive('/history') }">
-                            <a href="/history"><span class="fa fa-exclamation fa-fw"></span> Geschiedenis</a>
-                        </li>
-                        <li ng-class="{ active: isActive('/about') }">
-                            <a href="/about"><span class="fa fa-users fa-fw"></span> Over ons</a>
-                        </li>
-                    </ul>
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                    <div class="container">
+                        <a href="#" class="brand-logo">Dagaanbieding</a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li ng-class="{ active: isActive('/') }">
+                                <a href="/"><span class="fa fa-home fa-fw"></span> Home</a>
+                            </li>
+                            <li ng-class="{ active: isActive('/history') }">
+                                <a href="/history"><span class="fa fa-exclamation fa-fw"></span> Geschiedenis</a>
+                            </li>
+                            <li ng-class="{ active: isActive('/about') }">
+                                <a href="/about"><span class="fa fa-users fa-fw"></span> Over ons</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </header>
 
         <!-- Page content -->
-        <div class="container">
-            <ng-view></ng-view>
-        </div>
+        <main>
+            <div class="container">
+                <ng-view></ng-view>
+            </div>
+        </main>
 
         <!-- Footer -->
         <footer class="page-footer">
