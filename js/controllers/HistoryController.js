@@ -8,11 +8,12 @@ historyApp.controller("historyController", ['$scope', '$location', 'ajaxService'
     $scope.selectedYear = "";
 
     $scope.filterData = function () {
+        console.log($scope.selectedMonth, $scope.selectedYear, parseInt($scope.selectedMonth), parseInt($scope.selectedYear));
         var month = parseInt($scope.selectedMonth);
         var year = parseInt($scope.selectedYear);
 
         if (month !== "" && year !== "") {
-            console.log("clearing content");
+            console.log("Passed the IF statement...");
             $scope.content = [];
 
             $scope.allData.forEach(function (item) {
