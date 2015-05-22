@@ -1,17 +1,18 @@
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6" ng-repeat="item in content">
-            <div class="panel panel-default">
-                <div class="panel-header">
-               		<h3 class="text-center">Dagaanbieding van {{ item.date | date:fullDate }}</h3>
-                </div>
-                <hr>
-                <div class="panel-body content-body">
-                        <h2 class="text-center title">{{ item.name }}</h2>
-                        <img ng-src="{{ item.picture }}" class="img-responsive daily-img">
-                </div>
-                <div class="panel-footer">
-                	<h3 class="text-center" ng-if="item.price">&euro; {{ item.price | number:2 }}</h3>
+<div class="row">
+    <div class="col m6" ng-repeat="item in content">
+        <div class="row">
+            <div class="col s12 m7">
+                <div class="card">
+                    <div class="card-image">
+                        <img ng-src="{{ item.picture }}">
+                        <span class="card-title">{{ item.name }}</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Dagaanbieding van {{ item.date | date:fullDate }}</p>
+                    </div>
+                    <div class="card-action" ng-if="item.price">
+                        <h3>&euro; {{ item.price | number:2 }}</h3>
+                    </div>
                 </div>
             </div>
         </div>

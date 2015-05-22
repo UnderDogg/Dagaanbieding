@@ -2,70 +2,61 @@
 <html ng-app="Dagaanbieding">
 	<head>
 		<base href="/">
-		<title>DAGAANBIEDING!!!</title>
+		<title>DAGAANBIEDING!</title>
 
 		<!-- Font Awesome -->
 		<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 
-		<!-- Bootstrap -->
-		<link href="./css/bootstrap.css" rel="stylesheet" media="screen">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
 		<!-- Style.css -->
 		<link href="./css/styles.css" rel="stylesheet" media="screen">
 	</head>
 
 	<body ng-controller="globalController">
-		<div id="wrap">
-			<!-- Static navbar -->
-			<nav class="navbar navbar-default navbar-static-top">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="/">Dagaanbieding</a>
-					</div>
-					<div id="navbar" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav">
-							<li ng-class="{ active: isActive('/') }">
-								<a href="/"><i class="fa fa-home fa-fw"></i> Home</a>
-							</li>
-							<li ng-class="{ active: isActive('/history') }">
-								<a href="/history"><i class="fa fa-exclamation fa-fw"></i> Geschiedenis</a>
-							</li>
-							<li ng-class="{ active: isActive('/about') }">
-								<a href="/about"><i class="fa fa-users fa-fw"></i> Over Ons</a>
-							</li>
-						</ul>
-					</div><!--/.nav-collapse -->
-				</div>
-			</nav>
-
-			<div ng-view></div>
-
-            <div class="footer">
+        <!-- Navbar -->
+        <nav>
+            <div class="nav-wrapper">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <ul class="list-inline">
-                                <li class="copyright text-muted small">Copyright &copy;</li>
-                                <li class="copyright text-muted small"><a target="_blank" href="http://elsdenengelse.elshaakt.nl">Els den Engelse</a></li>
-                                <li class="footer-menu-divider">&sdot;</li>
-                                <li class="copyright text-muted small"><a target="_blank" href="http://sanderkoenders.nl">Sander Koenders</a></li>
-                                <li class="footer-menu-divider">&sdot;</li>
-                                <li class="copyright text-muted small">2015. All Rights Reserved</li>
-                                <li class="muted credit pull-right"><a target="_blank" href="http://elshaakt.nl">Admin Panel</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <a href="#" class="brand-logo">Dagaanbieding</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li ng-class="{ active: isActive('/') }">
+                            <a href="/"><span class="fa fa-home fa-fw"></span> Home</a>
+                        </li>
+                        <li ng-class="{ active: isActive('/history') }">
+                            <a href="/history"><span class="fa fa-exclamation fa-fw"></span> Geschiedenis</a>
+                        </li>
+                        <li ng-class="{ active: isActive('/about') }">
+                            <a href="/about"><span class="fa fa-users fa-fw"></span> Over ons</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </nav>
 
+        <!-- Page content -->
+        <div class="container">
+            <ng-view></ng-view>
+        </div>
 
-		</div>
+        <!-- Footer -->
+        <footer class="page-footer">
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2015
+                    <a href="http://elsdenengelse.elshaakt.nl">Els den Engelse</a> -&nbsp;
+                    <a href="http://sanderkoenders.nl">Sander Koenders</a> -&nbsp;
+                    <a href="http://maartenvandenhoven.nl">Maarten van den Hoven</a>
+                    All Rights Reserved
+
+                    <a class="grey-text text-lighten-4 right" href="http://elshaakt.nl">Admin Panel</a>
+                </div>
+            </div>
+        </footer>
 	</body>
 
 	<!-- JQuery -->
@@ -83,8 +74,8 @@
 	<script src="./js/controllers/HistoryController.js"></script>
 	<script src="./js/services/AjaxService.js"></script>
 
-	<!-- Bootstrap -->
-	<script src="./js/bootstrap.js"></script>
+	<!-- Materialize -->
+	<script src="./js/materialize.min.js"></script>
 	
 	<!-- Google Analytics -->
 	<script>
