@@ -24,7 +24,7 @@
                 <!--<div class="nav-wrapper">-->
                 <div class="top-nav">
                     <div class="nav-wrapper container">
-                        <a href="#" id="logo-container" class="brand-logo">Dagaanbieding</a>
+                        <a id="logo-container" class="brand-logo">Dagaanbieding</a>
                         <ul class="right hide-on-med-and-down">
                             <li class="waves-effect waves-dark" ng-class="{ active: isActive('/') }">
                                 <a href="/"><span class="fa fa-home fa-fw"></span> Home</a>
@@ -39,13 +39,13 @@
                     </div>
                 </div>
                 <ul id="nav-mobile" class="side-nav">
-                    <li class="waves-effect waves-dark">
+                    <li class="waves-effect waves-dark" ng-class="{ active: isActive('/') }">
                         <a href="/"><span class="fa fa-home fa-fw"></span> Home</a>
                     </li>
-                    <li class="waves-effect waves-dark">
+                    <li class="waves-effect waves-dark" ng-class="{ active: isActive('/history') }">
                         <a href="/history"><span class="fa fa-history fa-fw"></span> Geschiedenis</a>
                     </li>
-                    <li class="waves-effect waves-dark">
+                    <li class="waves-effect waves-dark" ng-class="{ active: isActive('/about') }">
                         <a href="/about"><span class="fa fa-users fa-fw"></span> Over ons</a>
                     </li>
                 </ul>
